@@ -19,7 +19,7 @@ var game = {
         rhoBoost: new RhoUpgrade("Rho Boost", "All Generators produce more Rho-Particles",
             level => new Decimal(1000).mul(Decimal.pow(13, level)),
             level => Decimal.pow(1.7, level)),
-        shrinkBoost: new RhoUpgrade("Shrink Boost", "All Generators Shrink faster",
+        shrinkBoost: new RhoUpgrade("Shrink Boost", "All Generators Shrink faster, but they dont give you Extenze pp pills",
             level => new Decimal(10000).mul(Decimal.pow(13, level)),
             level => new Decimal(1 + 0.1 * level), {
                 getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
