@@ -17,11 +17,11 @@ var game = {
     resources: {},
     rhoUpgrades: {
         rhoBoost: new RhoUpgrade("Rho Boost", "All Generators produce more Rho-Particles",
-            level => new Decimal(1000).mul(Decimal.pow(16, level)),
-            level => Decimal.pow(1.5, level)),
+            level => new Decimal(1000).mul(Decimal.pow(13, level)),
+            level => Decimal.pow(1.7, level)),
         shrinkBoost: new RhoUpgrade("Shrink Boost", "All Generators Shrink faster",
-            level => new Decimal(10000).mul(Decimal.pow(16, level)),
-            level => new Decimal(1 + 0.05 * level), {
+            level => new Decimal(10000).mul(Decimal.pow(13, level)),
+            level => new Decimal(1 + 0.1 * level), {
                 getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
             }),
         shrinkingExpertise: new RhoUpgrade("Shrinking Expertise", "All Generators are stronger based on how far you shrunk the Universe",
@@ -30,12 +30,12 @@ var game = {
         synergyRho: new RhoUpgrade("Rho Synergy", "All Generators are stronger based on total Generator Levels",
             level => new Decimal(1e10).mul(Decimal.pow(1e4, level)),
             level => Decimal.pow(1 + 0.003 * Math.sqrt(level), functions.totalShrinkersBought()), {
-                maxLevel: 5
+                maxLevel: 25
             }),
         synergyShrink: new RhoUpgrade("Shrink Synergy", "All Generators Shrink stronger based on total Generator Levels",
             level => new Decimal(1e15).mul(Decimal.pow(1e4, level)),
             level => new Decimal(1 + 0.0002 * level * functions.totalShrinkersBought()),{
-                maxLevel: 10,
+                maxLevel: 50,
                 getEffectDisplay: effectDisplayTemplates.numberStandard(4, "^")
             })
     },
